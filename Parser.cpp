@@ -277,18 +277,24 @@ void  C_Parser::parse_code_line(int code_line_number)
 			else if (is_function(temp_operator_stack.top()))
 			{
 				std::map<std::string, EType>::iterator iter = m_oVariable_name_and_type.find(m_oVariable_Operators_and_Operands.top());
+				std::map<std::string, EType>::iterator iter_1 = m_oVariable_name_and_type.find(temp_operator_stack.top());
 				std::string temp_2 = m_oVariable_Operators_and_Operands.top();
-				m_oVariable_Operators_and_Operands.pop();
-				//if  we  has'nt  such  function  throw  exeption
-				if (iter == m_oVariable_name_and_type.end() && m_oVariable_Operators_and_Operands.size() != 0)
-					throw C_Compile_Error("UNDEFINDE FUNCTION IN  LINE ", code_line_number);
 				//generate  function call  code  part 
 				generate_function_call_part_code(temp_2, temp_code_stream);
 
 				/*-----------------------------------------------------------------------------------------*/
-				std::map<std::string, EType>::iterator iter_1 = m_oVariable_name_and_type.find(temp_operator_stack.top());
 				if (iter_1 == m_oVariable_name_and_type.end())
 					throw C_Compile_Error("UNDEFINDE FUNCTION  IN LINE ", code_line_number);
+				//if  call  same  funcion  then  move  R0 register
+				if (iter == iter_1)
+				{
+					E_GPR reg = find_empty_GPR_in_input_type(iter_1->second);
+					temp_code_stream << "MOVE " << get_typename(iter->second) << " R0 , R" << reg << std::endl;
+				}
+				m_oVariable_Operators_and_Operands.pop();
+				//if  we  has'nt  such  function  throw  exeption
+				if (iter == m_oVariable_name_and_type.end() && m_oVariable_Operators_and_Operands.size() != 0)
+					throw C_Compile_Error("UNDEFINDE FUNCTION IN  LINE ", code_line_number);
 
 				temp_2 = temp_operator_stack.top();
 				temp_operator_stack.pop();
