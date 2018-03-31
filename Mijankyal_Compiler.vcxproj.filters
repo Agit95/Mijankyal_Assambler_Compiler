@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Instruction Set">
+      <UniqueIdentifier>{f08a7722-7c37-48fb-9a8d-2f55b1fdddd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Code Parser">
+      <UniqueIdentifier>{9c844f59-49c2-427a-ba32-b789afe19f64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Code Parser">
+      <UniqueIdentifier>{9454c86e-982c-4256-963f-91834444d080}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IO Device">
+      <UniqueIdentifier>{0a0ebc56-208f-4fe9-9fd7-a2e39d9dde79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IO Device">
+      <UniqueIdentifier>{5a305a68-bcdb-45dc-9809-d69e82045984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Compile_ERROR">
+      <UniqueIdentifier>{de99a5f5-c775-422d-bb69-90971f34bb00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Compile_ERROR">
+      <UniqueIdentifier>{b1fab98d-4bb6-40c0-83a5-328e86038266}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Parser.h">
+      <Filter>Header Files\Code Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="IO_Device_Class.h">
+      <Filter>Header Files\IO Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Operators_and_bracket.h">
+      <Filter>Header Files\Instruction Set</Filter>
+    </ClInclude>
+    <ClInclude Include="C_Compile_Error.h">
+      <Filter>Header Files\Compile_ERROR</Filter>
+    </ClInclude>
+    <ClInclude Include="Lexer.h">
+      <Filter>Header Files\Code Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="EType.h">
+      <Filter>Header Files\Instruction Set</Filter>
+    </ClInclude>
+    <ClInclude Include="GPR.h">
+      <Filter>Header Files\Instruction Set</Filter>
+    </ClInclude>
+    <ClInclude Include="Address_Register.h">
+      <Filter>Header Files\Instruction Set</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Parser.cpp">
+      <Filter>Source Files\Code Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="IO_Device_Class.cpp">
+      <Filter>Source Files\IO Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C_Compile_Error.cpp">
+      <Filter>Source Files\Compile_ERROR</Filter>
+    </ClCompile>
+    <ClCompile Include="Lexer.cpp">
+      <Filter>Source Files\Code Parser</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

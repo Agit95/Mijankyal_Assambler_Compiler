@@ -1,0 +1,67 @@
+.data
+BYTE  c
+BYTE  k
+BYTE  t
+
+.code
+JUMP  START 
+EXIT
+
+T:
+PUSH A1 
+MOVE  A0 , A1
+ASSIGN  B  R1 , 7
+MOVE R0 , R1
+POP A1
+RET
+
+F:
+PUSH A1 
+MOVE A0 , A1 
+ASSIGN  B  R1 , 9
+ASSIGN  B  R2 , 6
+MUL  W  R1 , R2 , R2
+ASSIGN  A2 , T
+CALL  A2
+ASSIGN  B  R1 , 7
+SUB  DW  R0 , R1 , R1
+ADD  W  R1 , R2 , R2
+MOVE R0 , R2
+POP A1
+RET
+
+
+START:
+PUSH A1 
+MOVE A0 , A1 
+ASSIGN  A2 , T
+CALL  A2
+ASSIGN  A3 , F
+CALL  A3
+ASSIGN  B  R1 , 6
+ASSIGN  B  R2 , 2
+SUB  W  R1 , R2 , R2
+ASSIGN  B  R1 , 7
+ASSIGN  B  R3 , 9
+MUL  DW  R1 , R3 , R3
+DIV  DW  R3 , R2 , R3
+ASSIGN  B  R1 , 5
+SUB  DW  R3 , R1 , R3
+ASSIGN  A2 , c
+STORE  A2 , R3
+
+ASSIGN  B  R1 , 7
+ASSIGN  A2 , c
+LOAD  R4 , A2
+ADD  B  R1 , R4 , R4
+ASSIGN  A3 , k
+STORE  A3 , R4
+
+ASSIGN  B  R1 , 7
+ASSIGN  A2 , t
+STORE  A2 , R1
+
+
+POP A1
+RET
+
